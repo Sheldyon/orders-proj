@@ -1,10 +1,9 @@
-namespace my.sales;
-using {Country, managed} from '@sap/cds/common';
+namespace company.sales; 
+using {Country, managed, cuid} from '@sap/cds/common';
 
-entity Products{
-    key ID : UUID;
-    name: String(255);
-    description:LargeString;
+entity Products: cuid{
+    name: String(50);
+    description:String(255);
     barcode:String(50);
     category:String(100);
     brand: String(50);
@@ -12,8 +11,7 @@ entity Products{
     countInStock:Integer;
 }
 
-entity Orders: managed{
-    key ID: UUID;
+entity Orders: managed, cuid{
     number: String(20);
     customer: Association to Customers;
     amount: Decimal(15,2);
@@ -23,21 +21,19 @@ entity Orders: managed{
     deliveryDate: Date;
     shippingAddress: String;
     shippingFee: Decimal(15,2);
-    totalAmount:  Decimal(15,2);
-    items: Composition of many OrderItems on items.parent = $self;
+    totalAmount: Decimal(15,2);
+    items: Composition of many OrderItems on items.parentOrder = $self;
 }
 
-entity OrderItems{
-    key ID: UUID;
+entity OrderItems: cuid{
     number: String(20);
     product: Association to Products;
-    parent: Association to Orders;
+    parentOrder: Association to Orders;
     quantity: Integer;
     price: Decimal(15,2);
 }
 
-entity Customers {
-    key ID : UUID;
+entity Customers: cuid {
     firstName : String(100);
     lastName  : String(100);
     email     : String(255);

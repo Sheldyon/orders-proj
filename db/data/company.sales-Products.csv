@@ -1,0 +1,5 @@
+ID,name,description,barcode,category,brand,price,countInStock
+aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,Ноутбук,Мощный игровой ноутбук,ABC123,Электроника,Lenovo,1500.00,10
+bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb,Мышь,Беспроводная мышь,DEF456,Аксессуары,Logitech,50.00,25
+cccccccc-cccc-cccc-cccc-cccccccccccc,Клавиатура,Механическая клавиатура,GHI789,Аксессуары,Razer,120.00,15
+dddddddd-dddd-dddd-dddd-dddddddddddd,Монитор,27 дюймов 4K,JKL012,Электроника,Samsung,400.00,8
