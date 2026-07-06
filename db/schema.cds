@@ -1,5 +1,5 @@
 namespace company.sales; 
-using {Country, managed, cuid} from '@sap/cds/common';
+using {Country, managed, cuid, sap.common.CodeList} from '@sap/cds/common';
 
 entity Products: cuid{
     name: String(50);
@@ -16,7 +16,7 @@ entity Orders: managed, cuid{
     customer: Association to Customers;
     amount: Decimal(15,2);
     currency:String(3);  
-    status:String(20);
+    status:Association to Statuses;
     requestedDeliveryDate: Date;
     deliveryDate: Date;
     shippingAddress: String;
@@ -38,3 +38,9 @@ entity Customers: cuid {
     lastName  : String(100);
     email     : String(255);
 }
+
+@cds.odata.valuelist
+entity Statuses: CodeList{
+    key code : String(20);
+}
+

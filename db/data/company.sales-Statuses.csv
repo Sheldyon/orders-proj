@@ -1,0 +1,4 @@
+code,name,descr
+IN_PROGRESS,In Progress,Заказ в работе
+REJECTED,Rejected,Заказ отклонен
+RESOLVED,Resolved,Заказ выполнен

@@ -149,6 +149,26 @@
   "sap.fe": {
     "app": {
       "enableLazyLoading": true
+    },
+     "pages": {
+      "OrdersObjectPage": {
+        "headerActions": [
+          {
+            "id": "rejectAction",
+            "action": "reject",
+            "label": "Reject",
+            "requiresSelection": true,
+            "visible": true
+          },
+          {
+            "id": "resolveAction",
+            "action": "resolve",
+            "label": "Resolve",
+            "requiresSelection": true,
+            "visible": true
+          }
+        ]
+      }
     }
   }
 }

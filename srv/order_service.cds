@@ -5,4 +5,5 @@ service OrderService{
     entity Products @readonly as projection on sales.Products;
     entity Orders as projection on sales.Orders;
     entity OrderItems as projection on sales.OrderItems;
+    entity Statuses as projection on sales.Statuses;
 }

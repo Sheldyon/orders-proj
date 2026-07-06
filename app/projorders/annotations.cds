@@ -1,10 +1,10 @@
 using OrderService as service from '../../srv/order_service';
 
 annotate service.Orders with {
-    ID @title: '{i18n>OrderID}';
+    ID @title : '{i18n>OrderID}';
     number @title: '{i18n>OrderNumber}';
     status @title: '{i18n>OrderStatus}';
-    customer @title: '{i18n>Customer}';
+    customer @title : '{i18n>Customer}';
     amount @title: '{i18n>Amount}';
     shippingFee @title: '{i18n>ShippingFee}';
     totalAmount @title: '{i18n>TotalAmount}';
@@ -18,10 +18,33 @@ annotate service.Orders with {
     modifiedBy @title: '{i18n>ModifiedBy}';
 };
 
+annotate service.Orders with {
+    number @readonly: true;
+    status @readonly: true;
+    customer @readonly: false @mandatory;
+    amount @readonly: true;
+    shippingFee @readonly: false;
+    totalAmount @readonly: true;
+    currency @readonly: true;
+    requestedDeliveryDate @readonly: true;
+    deliveryDate @readonly: true;
+    shippingAddress @readonly: false @mandatory;
+    createdAt @readonly: true;
+    modifiedAt @readonly: true;
+    createdBy @readonly: true;
+    modifiedBy @readonly: true;
+};
+
 annotate service.Customers with {
     firstName @title: '{i18n>FirstName}';
     lastName @title: '{i18n>LastName}';
     email @title: '{i18n>Email}';
+};
+
+annotate service.Customers with {
+    firstName @readonly: false;
+    lastName @readonly: false;
+    email @readonly: false;
 };
 
 annotate service.OrderItems with {
@@ -29,7 +52,6 @@ annotate service.OrderItems with {
     product @title: '{i18n>Product}';
     quantity @title: '{i18n>Quantity}';
     price @title: '{i18n>Price}';
-    currency @title: '{i18n>Currency}';
 };
 
 annotate service.Products with {
@@ -41,11 +63,24 @@ annotate service.Products with {
     price @title: '{i18n>ProductPrice}';
     countInStock @title: '{i18n>CountInStock}';
 };
-
+annotate service.Orders with @odata.draft.enabled;
+annotate service.Orders with {
+status @Common: {
+    Text: status.name,
+    ValueList: {
+         Label: '{i18n>OrderStatus}',
+      CollectionPath: 'Statuses',
+      Parameters: [
+        { $Type: 'Common.ValueListParameterInOut', LocalDataProperty: status_code, ValueListProperty: 'code' },
+        { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'name' }
+      ]
+    }
+  }
+}
 annotate service.Orders with @(
     UI.SelectionFields : [
         number,
-        status,
+        status_code,
         customer.firstName,
         customer.lastName,
         customer.email,
@@ -57,7 +92,7 @@ annotate service.Orders with @(
     ],
     UI.LineItem : [
         { $Type : 'UI.DataField', Value : number },
-        { $Type : 'UI.DataField', Value : status },
+        { $Type : 'UI.DataField', Value : status.name },
         { $Type : 'UI.DataField', Value : customer.firstName },
         { $Type : 'UI.DataField', Value : customer.lastName },
         { $Type : 'UI.DataField', Value : customer.email },
@@ -74,12 +109,24 @@ annotate service.Orders with @(
     },
     UI.DataPoint #status : {
         $Type : 'UI.DataPointType',
-        Value : status,
+        Value : status.name,
         Title : '{i18n>OrderStatus}',
     },
     UI.HeaderFacets : [
         { $Type : 'UI.ReferenceFacet', ID : 'number', Target : '@UI.DataPoint#number' },
         { $Type : 'UI.ReferenceFacet', ID : 'status', Target : '@UI.DataPoint#status' },
+    
+    {  $Type : 'UI.Action',
+        Label : 'Reject',
+        Action : 'reject',
+        Inline : true
+    },
+    {  $Type : 'UI.Action',
+        Label : 'Resolve',
+        Action : 'resolve',
+        Inline : true
+    }
+    
     ],
     UI.Facets : [
         {
@@ -114,6 +161,13 @@ annotate service.Orders with @(
             { $Type : 'UI.DataField', Value : modifiedBy },
         ],
     },
+    Common.SideEffects : [
+        {
+            $Type : 'Common.SideEffectsType',
+            SourceProperties : [ status ],
+            TargetProperties : [ 'status/name', 'status_code' ]
+        }
+    ]
 );
 
 annotate service.OrderItems with @(
@@ -123,5 +177,10 @@ annotate service.OrderItems with @(
         { $Type : 'UI.DataField', Value : quantity, Label : '{i18n>Quantity}' },
         { $Type : 'UI.DataField', Value : price, Label : '{i18n>Price}' },
         { $Type : 'UI.DataField', Value : parentOrder.currency, Label : '{i18n>Currency}' },
-    ]
+    ],
+    CreateHidden: false,
+    DeleteHidden: false,
+    UpdateHidden:true
 );
+
+
