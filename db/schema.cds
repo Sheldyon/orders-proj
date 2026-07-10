@@ -22,6 +22,7 @@ entity Orders: managed, cuid{
     shippingAddress: String;
     shippingFee: Decimal(15,2);
     totalAmount: Decimal(15,2);
+    totalAmountEUR: Decimal(15,2) @cds.virtual;
     items: Composition of many OrderItems on items.parentOrder = $self;
 }
 

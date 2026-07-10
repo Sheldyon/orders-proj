@@ -1,16 +1,16 @@
 {
   "generationParameters": {
-    "generationDate": "Wed Jul 01 2026 03:06:13 GMT+0300 (Moscow Standard Time)",
+    "generationDate": "Fri Jul 10 2026 13:20:55 GMT+0300 (Moscow Standard Time)",
     "generatorPlatform": "Visual Studio Code",
     "serviceType": "Local CAP",
     "metadataFilename": "",
     "serviceUrl": "http://localhost:4004/odata/v4/order/",
-    "appName": "projorders",
-    "appTitle": "Управление заказами",
+    "appName": "orders_proj",
+    "appTitle": "Мои Заказы",
     "appDescription": "An SAP Fiori application.",
-    "appNamespace": "",
+    "appNamespace": "company.sales",
     "ui5Theme": "sap_horizon",
-    "ui5Version": "1.149.1",
+    "ui5Version": "1.150.0",
     "enableEslint": true,
     "enableTypeScript": false,
     "showMockDataInfo": false,
@@ -27,6 +27,6 @@
         "value": "items"
       }
     ],
-    "launchText": "To launch the generated app, start your CAP project:  and navigate to the following location in your browser:\n\nhttp://localhost:4004/projorders/webapp/index.html"
+    "launchText": "To launch the generated app, start your CAP project:  and navigate to the following location in your browser:\n\nhttp://localhost:4004/company.sales.ordersproj/index.html"
   }
 }

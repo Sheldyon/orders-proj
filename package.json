@@ -10,7 +10,9 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-projorders": "cds watch --open projorders/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-projorders": "cds watch --open projorders/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "build": "ui5 build --all",
+    "watch-orders_proj": "cds watch --open company.sales.ordersproj/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
   "cds": {
@@ -27,6 +29,7 @@
     "app/*"
   ],
   "sapux": [
-    "app/projorders"
+    "app/projorders",
+    "app/orders_proj"
   ]
 }

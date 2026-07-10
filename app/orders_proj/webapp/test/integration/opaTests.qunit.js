@@ -22,10 +22,10 @@ sap.ui.require(
     "sap/ui/thirdparty/qunit-2",
     "sap/ui/qunit/qunit-junit",
     "sap/ui/qunit/qunit-coverage",
-    "projorders/test/integration/FirstJourney",
-    "projorders/test/integration/OrdersListJourney",
-    "projorders/test/integration/OrdersObjectPageJourney",
-    "projorders/test/integration/OrderItemsObjectPageJourney",
+    "company/sales/ordersproj/test/integration/FirstJourney",
+    "company/sales/ordersproj/test/integration/OrdersListJourney",
+    "company/sales/ordersproj/test/integration/OrdersObjectPageJourney",
+    "company/sales/ordersproj/test/integration/OrderItemsObjectPageJourney",
 ], function (QUnit) {
     "use strict";
     QUnit.start();

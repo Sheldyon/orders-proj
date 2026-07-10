@@ -1,7 +1,7 @@
 {
   "_version": "1.85.0",
   "sap.app": {
-    "id": "projorders",
+    "id": "company.sales.ordersproj",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.27.0",
-      "toolsId": "708d216b-e96d-4946-848f-3cbdfccde69e"
+      "toolsId": "7954895c-2a22-45f8-ac0f-5ec7d1a8d819"
     },
     "dataSources": {
       "mainService": {
@@ -45,7 +45,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.149.1",
+      "minUI5Version": "1.150.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -60,7 +60,12 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "projorders.i18n.i18n"
+          "bundleName": "company.sales.ordersproj.i18n.i18n",
+           "supportedLocales": [
+            "",
+            "ru"
+        ],
+            "fallbackLocale": ""
         }
       },
       "": {
@@ -130,7 +135,7 @@
               "contextPath": "/Orders",
               "navigation": {},
               "controlConfiguration": {
-                "items/@com.sap.vocabularies.UI.v1.LineItem#SalesOrderItems": {
+                "items/@com.sap.vocabularies.UI.v1.LineItem#GeneralData": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
                   }
@@ -149,26 +154,6 @@
   "sap.fe": {
     "app": {
       "enableLazyLoading": true
-    },
-     "pages": {
-      "OrdersObjectPage": {
-        "headerActions": [
-          {
-            "id": "rejectAction",
-            "action": "reject",
-            "label": "Reject",
-            "requiresSelection": true,
-            "visible": true
-          },
-          {
-            "id": "resolveAction",
-            "action": "resolve",
-            "label": "Resolve",
-            "requiresSelection": true,
-            "visible": true
-          }
-        ]
-      }
     }
   }
 }

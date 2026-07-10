@@ -1,24 +1,24 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Wed Jul 01 2026 03:06:13 GMT+0300 (Moscow Standard Time)|
+|**Generation Date and Time**<br>Fri Jul 10 2026 13:20:55 GMT+0300 (Moscow Standard Time)|
 |**App Generator**<br>SAP Fiori Application Generator|
 |**App Generator Version**<br>1.27.0|
 |**Generation Platform**<br>Visual Studio Code|
 |**Template Used**<br>List Report Page V4|
 |**Service Type**<br>Local CAP|
 |**Service URL**<br>http://localhost:4004/odata/v4/order/|
-|**Module Name**<br>projorders|
-|**Application Title**<br>Управление заказами|
-|**Namespace**<br>|
+|**Module Name**<br>orders_proj|
+|**Application Title**<br>Мои Заказы|
+|**Namespace**<br>company.sales|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.149.1|
+|**UI5 Version**<br>1.150.0|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>True, see https://www.npmjs.com/package/@sap-ux/eslint-plugin-fiori-tools#rules for the eslint rules.|
 |**Main Entity**<br>Orders|
 |**Navigation Entity**<br>items|
 
-## projorders
+## orders_proj
 
 An SAP Fiori application.
 
@@ -26,7 +26,7 @@ An SAP Fiori application.
 
 -   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  To launch the generated app, start your CAP project:  and navigate to the following location in your browser:
 
-http://localhost:4004/projorders/webapp/index.html
+http://localhost:4004/company.sales.ordersproj/index.html
 
 #### Pre-requisites:
 
